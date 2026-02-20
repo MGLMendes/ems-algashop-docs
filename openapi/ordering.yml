@@ -8,4 +8,52 @@ servers:
   - description: Development
     url: "http://localhost:8080"
   - description: Production
-    url: "http://api.algashop.com"
+    url: "https://api.algashop.com"
+
+paths:
+  /api/v1/customers:
+    post:
+      description: Register a new customer
+      tags:
+        - Customers
+    get:
+      description: List customers
+      tags:
+        - Customers
+
+  /api/v1/customers/{customerId}:
+    get:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "019c7b95-f43f-7b27-95a3-4f609adecca9"
+      description: List single customer by id
+      tags:
+        - Customers
+
+    put:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "019c7b95-f43f-7b27-95a3-4f609adecca9"
+      description: Edit customer
+      tags:
+        - Customers
+
+    delete:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "019c7b95-f43f-7b27-95a3-4f609adecca9"
+      description: Delete customer
+      tags:
+        - Customers
