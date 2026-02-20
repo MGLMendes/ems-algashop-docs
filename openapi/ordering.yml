@@ -57,3 +57,121 @@ paths:
       description: Delete customer
       tags:
         - Customers
+
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "019c7b9a-afab-776e-a20f-451ab1b3b06d"
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        email:
+          type: string
+          example: "john.doe@email.com"
+        document:
+          type: string
+          example: "1234"
+        phone:
+          type: string
+          example: "412412"
+        birthDate:
+          type: string
+          format: date
+          example: "1990-03-21"
+        loyaltyPoints:
+          type: number
+          example: 10
+        registeredAt:
+          type: string
+          format: date-time
+          example: "2024-04-02T00:12:45Z"
+        archivedAt:
+          type: string
+          format: date-time
+          example: "2024-04-06T00:12:45Z"
+        promotionNotificationsAllowed:
+          type: boolean
+          example: true
+        archived:
+          type: boolean
+          example: false
+        address:
+          $ref: "#/components/schemas/Address"
+
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          example: "Bourbon Street"
+        number:
+          type: string
+          example: "123"
+        complement:
+          type: string
+          example: "apt 122"
+        neighborhood:
+          type: string
+          example: "North Vile"
+        city:
+          type: string
+          example: "Yorstfort"
+        state:
+          type: string
+          example: "South Carolina"
+        zipCode:
+          type: string
+          example: "1235"
+
+    CustomerInput:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        email:
+          type: string
+          example: "john.doe@email.com"
+        document:
+          type: string
+          example: "1234"
+        phone:
+          type: string
+          example: "412412"
+        promotionNotificationsAllowed:
+          type: boolean
+          example: true
+        birthDate:
+          type: string
+          format: date
+          example: "1990-03-21"
+        address:
+          $ref: "#/components/schemas/Address"
+
+    CustomerUpdateInput:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        phone:
+          type: string
+          example: "412412"
+        promotionNotificationsAllowed:
+          type: boolean
+          example: true
+        address:
+          $ref: "#/components/schemas/Address"
